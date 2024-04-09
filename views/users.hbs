@@ -1,0 +1,9 @@
+<div class="users-container">
+    {{#each users}}
+    {{> userItem}}
+    {{else}}
+         <div class="no-users-message">
+            <p class="no-users-text">Няма намерени потребители.</p>
+        </div>
+    {{/each}}
+</div>

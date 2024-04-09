@@ -1,0 +1,26 @@
+{{#with carPart}}
+<div class="product-detail-container">
+    <div class="upper-container">
+        <img class="product-image" src="/static/assets/{{imageUrl}}" alt="{{name}}">
+        <div class="product-info">
+            <h1>{{name}}</h1>
+            <p><span>Цена:</span> {{price}}лв.</p>
+            {{#unless ../isInCart}}
+            <a class="btn add-to-cart" href="/addToCart/{{id}}">Добави в количката</a>
+            {{/unless}}
+
+            {{#if ../isAdmin}}
+            <a class="btn edit" href="/edit/{{id}}">Редактиране</a>
+            <a class="big-delete-btn" href="/delete/{{id}}">Изтриване</a>
+            {{/if}}
+        </div>
+    </div>
+    <div class="product-description">
+        <span>Описание:</span> {{description}}
+    </div>
+</div>
+{{/with}}
+
+
+
+

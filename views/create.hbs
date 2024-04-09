@@ -1,0 +1,25 @@
+<h1>Създаване</h1>
+<div class="form">
+    <form action="/create" method="Post">
+        <label for="name">Име</label>
+        <input type="text" id="name" name="name">
+        <label for="description">Описание</label>
+        <textarea id="description" name="description"></textarea>
+        <label for="image">URL на изображението</label>
+        <input type="text" id="image" name="imageUrl">
+        <label for="price">Цена</label>
+        <input id="price" type="number" name="price">
+        <label for="category">Категория</label>
+        <select name="category" id="category" required>
+            <option value="">Моля, изберете услуга</option>
+            <option value="engines">Двигатели</option>
+            <option value="filters">Филтри</option>
+            <option value="suspensions">Окачване</option>
+            <option value="transmissions">Трансмисии</option>
+            <option value="lights">Светлини</option>
+            <option value="exhausts">Ауспуси</option>
+            <option value="chains">Вериги</option>
+        </select>
+        <input type="submit" value="Публикувай">
+    </form>
+</div>

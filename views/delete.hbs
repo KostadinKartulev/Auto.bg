@@ -1,0 +1,16 @@
+<h1>Изтриване на Обява</h1>
+<div class="form" >
+    {{#with carPart}}
+    <form action="/delete/{{id}}" method="POST">
+        <label for="name">Име</label>
+        <input type="text" id="name" name="name" value="{{name}}" readonly>
+        <label for="description">Описание</label>
+        <textarea id="description" name="description" readonly>{{description}}</textarea>
+        <label for="image">URL на изображението</label>
+        <input type="text" id="image" name="imageUrl" value="{{imageUrl}}" readonly>
+        <label for="price">Цена</label>
+        <input type="number" id="price" name="price" value="{{price}}" readonly>
+        <input type="submit" value="Потвърди Изтриване">
+    </form>
+    {{/with}}
+</div>

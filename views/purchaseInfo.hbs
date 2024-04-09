@@ -1,0 +1,40 @@
+<section class="divForm">
+  <div class="containerPurchaseInfo">
+    <h1 class="black-h1" >Информация за поръчката</h1>
+    <form action="/purchaseInfo" method="POST" class="form">
+      <div class="input-box">
+        <label>Пълно Име</label>
+        <input type="text" placeholder="Въведете пълното си име" name="name" required />
+      </div>
+      <div class="input-box">
+        <label>Имейл Адрес</label>
+        <input type="email" placeholder="Въведете имейл адрес" name="email" required />
+      </div>
+      <div class="column">
+        <div class="input-box">
+          <label>Телефонен Номер</label>
+          <input type="text" placeholder="Въведете телефонен номер" name="phoneNumber" required />
+        </div>
+      </div>
+      <div class="delivery-box">
+        <h3>Доставка</h3>
+        <div class="delivery-option">
+          <div class="delivery">
+            <input type="radio" id="check-speedy" name="delivery" value="speedy" checked />
+            <label for="check-speedy">Speedy</label>
+          </div>
+          <div class="delivery">
+            <input type="radio" id="check-econt" name="delivery" value="econt" />
+            <label for="check-econt">Econt</label>
+          </div>
+        </div>
+      </div>
+      <div class="input-box address">
+        <label>Адрес</label>
+        <input type="text" placeholder="Въведете адрес" name="address" required />
+        <input type="number" placeholder="Въведете пощенски код" name="postalCode" required />
+      </div>
+      <button>Потвърди поръчката</button>
+    </form>
+  </div>
+</section>

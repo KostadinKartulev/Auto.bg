@@ -1,0 +1,34 @@
+{{#with request}}
+<section class="divForm">
+  <div class="containerPurchaseInfo">
+    <h1 class="black-h1">Редакция на Заявка за Автомобилно Обслужване</h1>
+    <form action="/processRequests/editRequest/{{id}}" method="POST" class="form">
+      <div class="input-box">
+        <label for="carModel">Модел на Автомобила</label>
+        <input type="text" placeholder="Въведете модел на автомобила" name="carModel" id="carModel" value="{{carModel}}" disabled />
+      </div>
+      <div class="input-box">
+        <label for="carYear">Година на Производство</label>
+        <input type="number" placeholder="Въведете година на производство" name="carYear" id="carYear" value="{{carYear}}"
+          disabled />
+      </div>
+      <div class="input-box">
+        <label for="clientPhoneNumber">Телефонен Номер</label>
+        <input type="text" placeholder="Телефонен Номер" name="clientPhoneNumber" id="clientPhoneNumber"
+          value="{{clientPhoneNumber}}" disabled />
+      </div>
+      <div class="input-box">
+        <label for="dateToBringCar">Дата за докарване на автомобила</label>
+        <input type="date" placeholder="Дата за докарване" name="dateToBringCar" id="dateToBringCar" required />
+      </div>
+      <div class="column">
+        <div class="input-box">
+          <label for="serviceType">Вид на Услугата</label>
+          <input type="text" name="serviceType" id="serviceType" value="{{serviceType}}" disabled />
+        </div>
+      </div>
+      <button type="submit">Запазване</button>
+    </form>
+  </div>
+</section>
+{{/with}}

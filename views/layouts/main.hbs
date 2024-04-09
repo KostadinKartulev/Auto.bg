@@ -1,0 +1,117 @@
+<head>
+    <meta charset="UTF-8">
+    <title>{{Заглавие}}</title>
+    <link href="/static/css/site.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/df9e4c77de.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/"><img class="logo" src="/static/images/logo-removebg.png"></a>
+            <ul class="menu-links">
+                <li><a href="/">Автомобилни части</a></li>
+                <li><a href="/about">За нас</a></li>
+                <li><a href="/cart">Количка</a></li>
+
+                {{#if isAdmin}}
+                <li><a href="/create">Публикуване на обява</a></li>
+                <li><a href="/users">Потребители</a></li>
+                {{/if}}
+
+                {{#if isAdmin}}
+                <li><a href="/processRequests/pending">Обработка на заявки</a></li>
+                {{/if}}
+
+                {{#if isEmployee}}
+                <li><a href="/processRequests/pending">Обработка на заявки</a></li>
+                {{/if}}
+
+                {{#if hasUser}}
+                {{#unless isAdmin }}
+                {{#unless isEmployee}}
+                <li><a href="/serviceRequestForm">Заявка за ремонт</a></li>
+                <li><a href="/clientRequests/pending">Вашите заявки</a></li>
+                {{/unless}}
+                {{/unless}}
+                <li><a href="/logout">Изход</a></li>
+                {{else}}
+                <li><a href="/login">Вход</a></li>
+                <li><a href="/register">Регистрация</a></li>
+                {{/if}}
+
+                <span id="close-menu-btn" class="material-symbols-outlined">close</span>
+            </ul>
+            <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="content">
+
+            {{{body}}}
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>компания</h4>
+                    <ul>
+                        <li><a href="#">относно нас</a></li>
+                        <li><a href="#">нашите услуги</a></li>
+                        <li><a href="#">политика за поверителност</a></li>
+                        <li><a href="#">програма за афилиати</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>помощ</h4>
+                    <ul>
+                        <li><a href="#">ЧЗВ</a></li>
+                        <li><a href="#">доставка</a></li>
+                        <li><a href="#">връщане</a></li>
+                        <li><a href="#">статус на поръчката</a></li>
+                        <li><a href="#">възможности за плащане</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>онлайн магазин</h4>
+                    <ul>
+                        <li><a href="#">часовник</a></li>
+                        <li><a href="#">чанта</a></li>
+                        <li><a href="#">обувки</a></li>
+                        <li><a href="#">рокля</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>последвайте ни</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.querySelector("header");
+        const hamburgerBtn = document.querySelector("#hamburger-btn");
+        const closeMenuBtn = document.querySelector("#close-menu-btn");
+        // Toggle mobile menu on hamburger button click
+        hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+        // Close mobile menu on close button click
+        closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+    </script>
+</body>
+
+</html>

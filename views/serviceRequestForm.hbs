@@ -1,0 +1,36 @@
+<h1>Заявка за ремонт</h1>
+<section class="divForm">
+  <div class="containerPurchaseInfo">
+    <form action="/serviceRequestForm" method="POST" class="form">
+      <div class="input-box">
+        <label for="carModel">Модел на автомобила</label>
+        <input type="text" placeholder="Въведете модел на автомобила" name="carModel" id="carModel" required />
+      </div>
+      <div class="input-box">
+        <label for="carYear">Година на производство</label>
+        <input type="number" placeholder="Въведете година на производство" name="carYear" id="carYear" required min="1900" />
+      </div>
+      <div class="input-box">
+        <label for="clientPhoneNumber">Телефонен номер</label>
+        <input type="text" placeholder="Телефонен номер" name="clientPhoneNumber" id="clientPhoneNumber" required/>
+      </div>
+      <div class="column">
+        <div class="input-box">
+          <label for="serviceType">Вид на услугата</label>
+          <select name="serviceType" id="serviceType" required>
+            <option value="">Моля, изберете услуга</option>
+            <option value="oilChange">Смяна на масло</option>
+            <option value="engineSwap">Смяна на двигател</option>
+            <option value="tireRotation">Ротация на гумите</option>
+            <option value="brakeService">Ремонт на спирачки</option>
+            <option value="batteryReplacement">Смяна на акумулатор</option>
+            <option value="acRepair">Ремонт на климатик</option>
+            <option value="suspensionRepair">Ремонт на окачването</option>
+            <option value="unidentified">Неидентифициран проблем</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit">Изпрати заявката</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<section class="status-filter-menu">
+    <a href="/clientRequests/pending" class="status-filter-link" data-status="pending">В изчакване</a>
+    <a href="/clientRequests/accepted" class="status-filter-link" data-status="accepted">Приети</a>
+    <a href="/clientRequests/finished" class="status-filter-link" data-status="finished">Завършени</a>
+</section>
+
+{{#if requests}}
+<section class="requests-container">
+    {{#each requests}}
+    {{> clientRequestPreview}}
+    {{/each}}
+</section>
+
+{{else}}
+<div class="no-requests-message">
+    <p class="no-requests-text">Още няма заявки</p>
+</div>
+{{/if}}

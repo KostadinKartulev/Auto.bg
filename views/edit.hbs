@@ -1,0 +1,16 @@
+<h1>Редактиране на Обява</h1>
+<div class="form">
+    {{#with carPart}}
+    <form action="/edit/{{id}}" method="POST">
+        <label for="name">Име</label>
+        <input type="text" id="name" name="name" value="{{name}}">
+        <label for="description">Описание</label>
+        <textarea id="description" name="description">{{description}}</textarea>
+        <label for="image">URL на изображението</label>
+        <input type="text" id="image" name="imageUrl" value="{{imageUrl}}">
+        <label for="price">Цена</label>
+        <input type="number" id="price" name="price" value="{{price}}">
+        <input type="submit" value="Запази">
+    </form>
+    {{/with}}
+</div>

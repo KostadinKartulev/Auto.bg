@@ -1,0 +1,17 @@
+<div class="productInCart">
+    <div class="product-image">
+        <a href="/details/{{id}}">
+            <img src="/static/assets/{{imageUrl}}" alt="{{name}}"> 
+        </a>
+    </div>
+    <div class="product-details">
+        <div class="product-name">{{name}}</div>
+        <div class="product-price">{{price}}лв/брой.</div>
+    </div>
+    <div class="product-actions">
+        <a class="btn-action decreaseCount" href="/decreaseCount/{{id}}">-</a>
+        <span class="product-count">{{count}}</span>
+        <a class="btn-action increaseCount" href="/increaseCount/{{id}}">+</a>
+        <a class="btn-action btn-delete" href="/deleteItemFromCart/{{id}}">Изтрий</a>
+    </div>
+</div>

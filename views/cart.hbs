@@ -1,0 +1,15 @@
+<div class="products">
+    {{#if products}}
+    {{#each products}}
+    {{> productPreview}}
+    {{/each}}
+    <div class="checkout-actions">
+        <div class="totalPrice">Обща сума: {{totalPrice}}лв.</div>
+        <a class="btn" href="/purchaseInfo">Купи</a>
+    </div>
+    {{else}}
+    <div class="no-products-message">
+            <p class="no-products-text">Още няма продукти в кошницата</p>
+        </div>
+    {{/if}}
+</div>

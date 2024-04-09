@@ -1,0 +1,16 @@
+<div class="request-item">
+    <div class="request-details">
+        <p><span class="detail-label">Модел:</span> {{carModel}}</p>
+        <p><span class="detail-label">Услуга:</span> {{serviceType}}</p>
+        {{#unless isFinished}}
+            {{#if isAccepted}}
+            <p><span class="detail-label">Дата за докарване на колата:</span> {{dateToBringCar}} <i>(Година/Месец/Ден)</i></p>
+            {{/if}}
+        {{/unless}}
+    </div>
+    <div class="request-actions">
+        {{#if isFinished}}
+            <p><span class="detail-label" style="color:rgba(206, 0, 117, 0.684)">Вашата кола е готова за взимане!</span></p>
+        {{/if}}
+    </div>
+</div>

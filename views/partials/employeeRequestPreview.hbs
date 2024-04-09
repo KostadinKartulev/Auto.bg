@@ -1,0 +1,21 @@
+<div class="request-item">
+    <div class="request-details">
+        <p><span class="detail-label">Модел:</span> {{carModel}}</p>
+        <p><span class="detail-label">Услуга:</span> {{serviceType}}</p>
+    </div>
+    <div class="request-actions">
+        {{#unless isFinished}}
+            {{#if isAccepted}}
+            <a href="/processRequests/finishRequest/{{id}}" class="action-link finished">Завърши</a>
+            {{/if}}
+
+            {{#unless isProcessed}}
+            <a href="/processRequests/editRequest/{{id}}" class="action-link edit-accept">Редакция и Приемане</a>
+            <a href="/processRequests/rejectRequest/{{id}}" class="action-link reject">Отхвърляне</a>
+            {{/unless}}
+
+            {{else}}
+            <p><span class="detail-label">Телефонен номер на клиента:</span> {{clientPhoneNumber}}</p>
+        {{/unless}}
+    </div>
+</div>

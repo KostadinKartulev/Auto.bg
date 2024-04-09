@@ -1,0 +1,52 @@
+<h1>Автомобилни части</h1>
+<form action="/" method="GET">
+    <select name="category" class="category" id="category">
+        {{#if query.category}}
+        {{#if carParts}}
+        <option value="{{query.category}}">{{categoryName}}</option>
+        {{else}}
+        <option value="">Моля, изберете услуга</option>
+        {{/if}}
+        {{else}}
+        <option value="">Моля, изберете услуга</option>
+        {{/if}}
+        <option value="engines">Двигатели</option>
+        <option value="filters">Филтри</option>
+        <option value="suspensions">Окачване</option>
+        <option value="transmissions">Трансмисии</option>
+        <option value="lights">Светлини</option>
+        <option value="exhausts">Ауспуси</option>
+        <option value="chains">Вериги</option>
+        <option value="">Всички категории</option>
+    </select>
+    <input type="text" class="search" name="search" placeholder="Търсене..." value="{{query.search}}">
+    <input type="number" name="from" class="difficulty" placeholder="Цена от..." value="{{query.from}}">
+    <span>-</span>
+    <input type="number" name="to" class="difficulty" placeholder="Цена до..." value="{{query.to}}">
+      <button class="material-symbols-outlined searchbtn" type="sumbit">search</button>
+</form>
+
+<div id="cars">
+
+    {{#each carParts}}
+    {{> carPartsPreview}}
+    {{else}}
+    <p>Все още няма части за автомобили</p>
+    {{/each}}
+
+</div>
+
+<div class="pagination">
+    {{#if mustHaveNextOrPrevious}}
+
+    {{#if isTherePreviuosPage}}
+    <a href="/?page={{previousPage}}"><i class="fa-solid fa-circle-left"></i>
+        Предишни артикули</a>
+    {{/if}}
+
+    {{#if isThereNextPage}}
+    <a href="/?page={{currentPage}}">Следващи артикули <i class="fa-solid fa-circle-right"></i></a>
+    {{/if}}
+
+    {{/if}}
+</div>
