@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>{{Заглавие}}</title>
+    <title>{{title}}</title>
     <link href="/static/css/site.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" />
     <link rel="stylesheet"
@@ -49,54 +49,66 @@
             </ul>
             <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
         </nav>
+
     </header>
 
     <main class="hero-section">
+
         <div class="content">
+
+            {{#if errors}}
+            <div id="notifications">
+                {{#each errors}}
+                <p>{{msg}}</p>
+                {{/each}}
+            </div>
+            {{/if}}
 
             {{{body}}}
 
         </div>
     </main>
 
+
+
     <footer class="footer">
         <div class="footer-container">
             <div class="row">
                 <div class="footer-col">
-                    <h4>компания</h4>
+                    <h4>Полезно</h4>
                     <ul>
-                        <li><a href="#">относно нас</a></li>
-                        <li><a href="#">нашите услуги</a></li>
-                        <li><a href="#">политика за поверителност</a></li>
-                        <li><a href="#">програма за афилиати</a></li>
+                        <li><a href="/about">Относно нас</a></li>
+                        <li><a href="/">Автомобилни части</a></li>
+                        <li><a href="/login">Вход</a></li>
+                        <li><a href="/register">Регистрация</a></li>
+                        <li><a href="/cart">Количка</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>помощ</h4>
+                    <h4>Топ категории</h4>
                     <ul>
-                        <li><a href="#">ЧЗВ</a></li>
-                        <li><a href="#">доставка</a></li>
-                        <li><a href="#">връщане</a></li>
-                        <li><a href="#">статус на поръчката</a></li>
-                        <li><a href="#">възможности за плащане</a></li>
+                        <li><a href="/">Всички продукти</a></li>
+                        <li><a href="/?category=engines">Двигатели</a></li>
+                        <li><a href="/?category=filters">Филтри</a></li>
+                        <li><a href="/?category=lights">Светлини</a></li>
+                        <li><a href="/?category=exhausts">Ауспуси</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>онлайн магазин</h4>
+                    <h4>Помощ</h4>
                     <ul>
-                        <li><a href="#">часовник</a></li>
-                        <li><a href="#">чанта</a></li>
-                        <li><a href="#">обувки</a></li>
-                        <li><a href="#">рокля</a></li>
+                        <li><a>Местоположение - бул.Христо Ботев 67,1303 София</a></li>
+                        <li><a>Телефон - 0876543210</a></li>
+                        <li><a href="mailto:kokikartulev05@gmail.com">Имейл - kokikartulev05@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>последвайте ни</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a><i class="fab fa-facebook-f"></i></a>
+                        <a><i class="fab fa-twitter"></i></a>
+                        <a><i class="fab fa-instagram"></i></a>
+                        <a><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>

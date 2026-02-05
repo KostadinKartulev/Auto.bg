@@ -5,7 +5,7 @@ const session = require('express-session');
 const initDb = require('./models');
 const Services = require('./services/index');
 
-const { isAdmin, isLoggedIn, isNotLoggedIn } = require('./middlewares/guards');
+const { isAdmin, isLoggedIn, isNotLoggedIn, isAdminOrEmployee } = require('./middlewares/guards');
 const { notFound } = require('./controllers/notFound');
 const { home } = require('./controllers/home');
 const { about } = require('./controllers/about');
@@ -18,13 +18,13 @@ const { addToCart } = require('./controllers/addToCart');
 const { increaseCount, decreaseCount } = require('./controllers/productCount');
 const cart = require('./controllers/cart');
 const { deleteItemFromCart } = require('./controllers/deleteFromCart');
-const purchaseInfo=require('./controllers/purchaseInfo');
+const purchaseInfo = require('./controllers/purchaseInfo');
 const { successfulOrder } = require('./controllers/successfulOrder');
-const users=require('./controllers/users');
-const serviceRequestForm=require('./controllers/serviceRequestForm');
+const users = require('./controllers/users');
+const serviceRequestForm = require('./controllers/serviceRequestForm');
 
-const processRequestsRouter=require('./routes/processRequests');
-const clientRequestsRouter=require('./routes/clientRequests');
+const processRequestsRouter = require('./routes/processRequests');
+const clientRequestsRouter = require('./routes/clientRequests');
 
 start();
 
@@ -54,16 +54,16 @@ async function start() {
     app.get('/details/:id', details)
 
     app.route('/create')
-        .get(create.get)
-        .post(create.post);
+        .get(isAdmin(), create.get)
+        .post(isAdmin(), create.post);
 
     app.route('/delete/:id')
-        .get(deleteCarPart.get)
-        .post(deleteCarPart.post);
+        .get(isAdmin(), deleteCarPart.get)
+        .post(isAdmin(), deleteCarPart.post);
 
     app.route('/edit/:id')
-        .get(edit.get)
-        .post(edit.post);
+        .get(isAdmin(), edit.get)
+        .post(isAdmin(), edit.post);
 
     app.route('/register')
         .get(isNotLoggedIn(), registerGet)
@@ -86,19 +86,19 @@ async function start() {
     app.route('/purchaseInfo')
         .get(purchaseInfo.get)
         .post(purchaseInfo.post)
-    
-    app.get('/successfulOrder',successfulOrder);
 
-    app.get('/users',users.get);
-    app.get('/deleteUser/:id',users.deleteUser);
+    app.get('/successfulOrder', successfulOrder);
+
+    app.get('/users', isAdmin(), users.get);
+    app.get('/deleteUser/:id', isAdmin(), users.deleteUser);
 
     app.route('/serviceRequestForm')
-        .get(serviceRequestForm.get)
-        .post(serviceRequestForm.post);
+        .get(isLoggedIn(), serviceRequestForm.get)
+        .post(isLoggedIn(), serviceRequestForm.post);
 
-    app.use('/processRequests',processRequestsRouter);
+    app.use('/processRequests', isAdminOrEmployee(), processRequestsRouter);
 
-    app.use('/clientRequests',clientRequestsRouter);
+    app.use('/clientRequests', isLoggedIn(), clientRequestsRouter);
 
     app.all('*', notFound);
 

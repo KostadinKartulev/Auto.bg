@@ -20,6 +20,16 @@ module.exports={
 
         res.render('clientRequests', { title: 'Your Requests', requests: acceptedRequests })
     },
+    async getRejectedRequests(req, res) {
+        const requests = await req.services.getAllServiceRequestsByUser(req.session.user.email);
+        const rejectedRequests = requests.filter((item) => {
+            if (item.isAccepted == false && item.isProcessed==true) {
+                return item;
+            }
+        })
+
+        res.render('clientRequests', { title: 'Your Requests', requests: rejectedRequests })
+    },
 
     async getFinishedRequests(req, res) {
         const requests = await req.services.getAllServiceRequestsByUser(req.session.user.email);

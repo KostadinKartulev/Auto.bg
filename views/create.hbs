@@ -1,25 +1,43 @@
-<h1>Създаване</h1>
-<div class="form">
-    <form action="/create" method="Post">
-        <label for="name">Име</label>
-        <input type="text" id="name" name="name">
-        <label for="description">Описание</label>
-        <textarea id="description" name="description"></textarea>
-        <label for="image">URL на изображението</label>
-        <input type="text" id="image" name="imageUrl">
-        <label for="price">Цена</label>
-        <input id="price" type="number" name="price">
-        <label for="category">Категория</label>
-        <select name="category" id="category" required>
-            <option value="">Моля, изберете услуга</option>
-            <option value="engines">Двигатели</option>
-            <option value="filters">Филтри</option>
-            <option value="suspensions">Окачване</option>
-            <option value="transmissions">Трансмисии</option>
-            <option value="lights">Светлини</option>
-            <option value="exhausts">Ауспуси</option>
-            <option value="chains">Вериги</option>
-        </select>
-        <input type="submit" value="Публикувай">
+<h1 class="form-title">Създаване</h1>
+<div class="form-container">
+
+    <form action="/create" method="Post" class="forms">
+
+        <div class="form-group">
+            <label for="name" class="form-label">Име</label>
+            <input type="text" id="name" name="name" class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="description" class="form-label">Описание</label>
+            <textarea id="description" name="description" class="form-input"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image" class="form-label">URL на изображението</label>
+            <input type="text" id="image" name="imageUrl" class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="price" class="form-label">Цена</label>
+            <input id="price" type="number" name="price" class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="category" class="form-label">Категория</label>
+            <select name="category" id="category" class="form-input" required>
+                <option value="">Моля, изберете услуга</option>
+                <option value="engines">Двигатели</option>
+                <option value="filters">Филтри</option>
+                <option value="suspensions">Окачване</option>
+                <option value="transmissions">Трансмисии</option>
+                <option value="lights">Светлини</option>
+                <option value="exhausts">Ауспуси</option>
+                <option value="chains">Вериги</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Публикувай" class="form-submit">
     </form>
+
 </div>

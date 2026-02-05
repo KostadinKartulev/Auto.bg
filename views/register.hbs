@@ -1,4 +1,4 @@
-<h1>Регистрация</h1>
+{{!-- <h1>Регистрация</h1>
 <div class="form">
     <form action="/register" method="POST">
         <label for="email">Имейл</label>
@@ -13,5 +13,33 @@
         <label for="repeatPassword">Повтори Парола</label>
         <input type="password" id="repeatPassword" name="repeatPassword">
         <input type="submit" value="Регистрация">
+    </form>
+</div> --}}
+
+<h1 class="form-title">Регистрация</h1>
+<div class="form-container">
+    <form action="/register" method="POST" class="forms">
+
+        <div class="form-group">
+            <label for="email" class="form-label">Имейл</label>
+            <input type="email" id="email" name="email" class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="username" class="form-label">Потребителско Име</label>
+            <input type="text" id="username" name="username" class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Парола</label>
+            <input type="password" id="password" name="password" class="form-input">
+        </div>
+
+        <div class="form-group">
+            <label for="repeatPassword" class="form-label">Повтори Парола</label>
+            <input type="password" id="repeatPassword" name="repeatPassword" class="form-input">
+        </div>
+
+        <input type="submit" value="Регистрация" class="form-submit">
     </form>
 </div>

@@ -28,8 +28,19 @@ function isAdmin() {
     }
 }
 
+function isAdminOrEmployee() {
+    return function (req,res,next) {
+        if (req.session.user && (req.session.user.isAdmin===true || req.session.user.isEmployee===true)) {
+            next();
+        }else {
+            res.redirect('/login');
+        }
+    }
+}
+
 module.exports={
     isLoggedIn,
     isNotLoggedIn,
     isAdmin,
+    isAdminOrEmployee,
 }

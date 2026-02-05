@@ -5,7 +5,7 @@ require('./CarPart');
 require('./User');
 require('./Order');
 
-const connectionString = 'mongodb://localhost:27017/carService';
+const connectionString = 'mongodb+srv://kokikartulev05:koki2005@clusterautobg.3uaq4gz.mongodb.net/?retryWrites=true&w=majority&appName=ClusterAutoBge';
 
 async function initDb() {
     try {

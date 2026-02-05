@@ -6,7 +6,12 @@ module.exports={
 
     async deleteUser(req,res){
         const id=req.params.id;
-        await req.services.deleteByIdUser(id);
-        res.redirect('/users');
+        try {
+            await req.services.deleteByIdUser(id);
+            res.redirect('/users');
+        } catch (error) {
+            console.error(error.message);
+            res.redirect('/users');
+        }
     }
 }

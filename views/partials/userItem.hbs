@@ -2,7 +2,7 @@
     <div class="user-info">
         <p><span class="info-label">Потребителско име:</span> {{this.username}}</p>
         <p><span class="info-label">Имейл:</span> {{this.email}}</p>
-        <p><span class="info-label">Работник:</span> {{#if this.isEmployed}}Да{{else}}Не{{/if}}</p>
+        <p><span class="info-label">Работник:</span> {{#if this.isEmployee}}Да{{else}}Не{{/if}}</p>
     </div>
     <a href="/deleteUser/{{this.id}}" class="delete-btn">Изтриване</a>
 </div>
