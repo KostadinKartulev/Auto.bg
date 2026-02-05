@@ -1,4 +1,4 @@
-The site is in development.
+
 
 home page(admin):
 ![image](https://github.com/KostadinKartulev/Auto.bg/assets/109463305/5edf3733-94ac-4682-89b5-557dad325c04)
